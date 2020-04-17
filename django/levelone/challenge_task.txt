@@ -1,0 +1,24 @@
+1)create a new django project : "ProTwo"
+2)create a new django app : "AppTwo"
+3)create an index view that returns :
+  <em>My second App </em>
+4)link this view to the urls.py files
+
+
+SOLUTIONS:
+
+1)django-admin startproject ProTwo
+--> python manage.py runserver
+2)python manage.py startapp AppTwo
+
+--> go to project dir --> setting.py --->under installed app add --> 'AppTwo'
+
+3)goto application dir --> views.py -->import httpresponse --> create a view function
+  def index(request):
+    return HttpResponse("<em>My second app/em>")
+
+4)goto project dir -->urls.py--> Add
+  from AppTwo import views
+
+  under urlPatterns
+  url(r'^$',views.index,name="index")

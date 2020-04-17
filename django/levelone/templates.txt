@@ -1,0 +1,23 @@
+#Templates makes us understand how Django really works and interacts with your website.
+
+#Template will contain the static parts of an html page
+
+ #CREATE templates folder in the root dir of projects
+ #in project dir--> setting --> add --> path of template FOLDER
+
+ TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
+
+ in TEMPLATES variables --> under DIRS lists-->  add TEMPLATE_DIR
+
+ #in templatesfolder create a file index.html
+ #add html code with template tags
+
+ #in app -->views.py  ->in index() --> render the file
+ def index(request):
+     my_dict = {'insert_me':"hello i am from views.py"}  #insert_is the key .. that has been been used in the index.html to display the value
+     return render(request,'index.html',context=my_dict)  #request,filename, context to passed to the template
+### other way
+You can also create a folder inside templates --> first_app -- > create a file index.html
+
+in view file
+return render(request,'first_app/index.html',context=my_dict)

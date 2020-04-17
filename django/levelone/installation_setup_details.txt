@@ -1,0 +1,22 @@
+#creating virtual environment
+
+conda create --name myEnv django=1.11  //this specifies the django version that must be in the environment
+conda create --name myEnv python=3.6 //this sprcifies the python version that must be in the environment
+
+After this command it will show the packages that will be installed to the enivronment
+and asks for whether to proceed ([y/n])
+
+To activate the environment
+conda activate myEnv
+
+To deactivate
+conda deactivate
+
+To list all the envs
+conda info --env
+After activating the env also you can install the packages that are required
+
+conda install django
+
+for normal python distributions
+pip install django

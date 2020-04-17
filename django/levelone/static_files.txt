@@ -1,0 +1,23 @@
+#for static files such as media files and so on
+
+*) We will create a new directory inside of the project called static ( just like we did for templates)
+*) Then we will add this directory path to the project’s settings.py file
+*) We will also add a STATIC_URL variable
+STATIC_URL = '/static/'
+
+To list the static directoeries in the project other then static folder
+STATIC_DIR = os.path.join(BASE_DIR,"static")
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
+*) once done create a place to store images --> create images folder inside static folder -->add a image
+
+*) in template -->index.html
+    add the top after <!DOCTYPE>
+      {% load staticfiles %}
+
+    loading images using template tags
+      <img src="{% static "images/fav.jpeg" %}" alt="fav">
+
+Adding css staticfiles
+*) in static --> create css folder --> create css file mycss.css

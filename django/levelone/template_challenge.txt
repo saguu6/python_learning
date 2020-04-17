@@ -1,0 +1,37 @@
+Templates is a big leap forward for us, so it is a good time to quickly practice using them!
+
+We will use your older ProTwo project (recreate it if you no longer have it)
+
+Complete the following tasks...
+
+*) create new view called help and use url mapping to render it for any page with the extension /help
+*) add template tags to return "help page"
+
+
+SOLUTIONS:
+
+step 1) create template/AppTwo folders in ProTwo project root dir
+step 2) in project dir --> settings.py -->set path for template folder
+        #TEMPLATES_DIR = os.path.join(BASE_DIR,"templates")
+
+      -->under TEMPLATES list --> on DIRS key list -> add  TEMPLATES_DIR
+        #  'DIRS': [TEMPLATES_DIR],
+step 3) create a file index.html in template/AppTwo --> add html code and template tag to display the data sent from views
+step 4) In app views.py --> add function
+
+def help(request):
+    data = {'add_me':"Hello am coming from views.py of the Apptwo application"}
+    return render(request,'AppTwo/index.html',context=data)
+
+step 5) In project -->urls.py
+    #from django.conf.urls import include
+  -- > add url
+  url(r'^my_extension',include('AppTwo.urls')),
+
+step 6) In app dir --> create a file urls.py --> add code
+  from django.conf.urls import url
+  from AppTwo import views
+
+  urlpatterns = [
+      url(r'^help',views.help,name="help"),
+      ]

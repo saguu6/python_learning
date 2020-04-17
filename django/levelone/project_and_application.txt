@@ -1,0 +1,46 @@
+##CREATING PROJECT
+To create project in django
+
+django-admin startproject first_project
+
+file structure of the projects
+
+___init___.py --> empty file -->which can be treated as packages
+settings.py --> all the project setting is stored here
+urls.py --> stores all thr url patterns of the pproject
+wsgi --> python script that act as web server gateway interface that help us deploy or app to production
+manage.py -->associates with many commands as building the project
+
+To run the project
+python manage.py runserver
+
+when you run the server
+___pychache___, db.SqLite3 folder and file will created
+
+To create a application in the project
+python manage.py startapp first_app
+
+startapp to create the application
+first_app is the app name
+
+when this command is executed -> it will create first_app folder inside first_project root folder
+first_app folder will conatin serveral files
+file structure of application
+
+__init__.py --> blank file --> treated as a packages
+admin.py --> models can be registered  here , which django will be used with django admin interface
+apps.py --> application specific configuration
+models.py --> here we store the application data models
+tests.py --> here we can store test functions to test the code
+views.py-->here we have functions that will handle the requests and response
+migration folder ---> this directory stores database specific information as it relates to the models
+
+#now we have created the application
+#server should know about this application created
+step 1) in first_project -->settings.py -->under INSTALLED_APPS --> add string --> 'first_app' Application
+
+#create a view
+step2) in application dir -->views.py --> add code
+
+#after creating view --> to see this we in browser we have to map it in urls
+step3) in project dir -->urls.py--> 1) import the views 2)under urlPatterns

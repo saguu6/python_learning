@@ -1,0 +1,15 @@
+3URL MAPPING IS DONE IN 'first_project'
+#For url mapping
+
+#use include() functions
+The include() function allows us to look for a match with regular expressions and link back to our application’s own urls.py file.
+We will have to manually add in this urls.py file in APLLICATION
+
+So we would add the following to the project’s urls.py
+
+from django.conf.urls import include
+urlpatterns = [url(r’^first_app/’,include(‘first_app.urls’))]
+
+This would allow us to look for any url that has the pattern:
+www.domainname.com/first_app/…
+If we match that pattern, the include() function basically tells Django to go look at the urls.py file inside of first_app folder
