@@ -1,6 +1,6 @@
 # python_learning
 
-Note : you can download annaconda or miniconda both will work for python.
+Note : you can download annaconda or miniconda pacakge both will work for python.
 
 download anacoda for python with pre-installed packages
 https://www.anaconda.com/distribution/
