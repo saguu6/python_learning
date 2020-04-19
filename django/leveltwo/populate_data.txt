@@ -1,0 +1,28 @@
+#adding dummy data to db
+#we need faker library for that
+#install faker library
+  pip install Faker
+
+#you need to the same virtual lib
+
+#for more information
+https://faker.readthedocs.io/en/master/
+
+#create a file in the first_project root directory
+
+populate_firstapp.py
+
+#firt setupcthe setting of the project and DJANGO_SETTING_MODULE
+import os
+#need to set up the setting
+os.environ.setdefault('DJANGO_SETTING_MODULE','firstproject.settings')
+
+import django
+django.setup()
+
+from firstapp.models import AccessRecord,Topic,Webpage
+from faker import Faker
+
+
+#run the file populate_firstapp.py
+python populate_firstapp.py

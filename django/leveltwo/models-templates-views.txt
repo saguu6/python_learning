@@ -1,0 +1,9 @@
+# here we will learn to connect models - templates - views
+
+# There are a few basics steps to achieving the goal of serving dynamic content to a user based off the connection of the models, views , and templates.
+
+#First: In the views.py file we import any models that we will need to use.
+#Second: Use the view to query the model for data that we will need
+#Third: Pass results from the model to the template
+#Fourth: Edit the template so that it is ready to accept and display the data from the model.
+#Fifth: Map a URL to the view.

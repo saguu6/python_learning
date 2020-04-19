@@ -1,0 +1,67 @@
+#Django comes equipped with SQLite.
+#Django can connect to a variety of SQL engine backends!
+
+#in the settings.py file you can edit the ENGINE parameter used for DATABASES
+#To create an actual model, we use a class structure inside of the relevant applications models.py file
+
+#This class object will be a subclass of Django’s built-in class:
+django.db.models.Model
+#Then each attribute of the class represents a field, which is just like a column name with constraints in SQL
+
+#Each column has a type of field, such as a CharField, IntegerField, DateField, etc.
+#model classes eg:
+Step1)
+class Topic(models.Model):
+	top_name = models.CharField(max_length=264, unique=True)
+
+class Webpage(models.Model):
+	category = models.ForeignKey(Topic)
+  name = models.CharField(max_length=264)
+	url = models.URLField()
+
+  	def __str__(self):
+  		return self.name
+
+#After we’ve set up the models we can migrate the database
+Step2)  python manage.py migrate
+#Then register the changes to your app, shown here with some generic “app1”:
+step3)  python manage.py makemigrations firstapp
+
+one more time
+step4) python manage.py migrate
+#how to know whether evrything worked fine, how to interact with db
+#usin shell command
+  python manage.py shell
+#shell will be opend
+>>  from firstapp.models import Topic
+#This will import topic model from the models
+#to add data to the Topic
+>>t = Topic(top_name = "social networking")
+>>t.save()
+
+#to pirnt that database
+>>>print(Topic.objects.all())
+
+
+#In order to use the more convenient Admin interface with the models however, we need to register them to our application’s admin.py file.
+
+from django.contrib import admin
+from firstapp.models import AccessRecord,Topic,Webpage
+  	admin.site.register(AccessRecord)
+    admin.site.register(Topic)
+    admin.site.Webpage(Webpage)
+
+#in order to fully use the database and the Admin, we will need to create a “superuser”
+    python manage.py createsuperuser
+
+#we need to set username,email and password to the super username
+usernmae = sagar
+email = sagar@gmail.com
+password = sagus@123
+
+#you check the admin interface in browser
+python manage.py runserver
+#http://127.0.0.1:8000/admin/
+
+#Once we’ve set up the models, it’s always good idea to populate them with some test data
+#We will use a library to help with this called Faker and create a script to do this.
