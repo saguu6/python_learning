@@ -1,0 +1,60 @@
+#django forms
+
+#Django Forms Advantages:
+#Quickly generate HTML form widgets
+#Validate data and process it into a Python data structure
+#Create form versions of our Models, quickly update models from Forms
+
+#The first thing we need to do is create a forms.py file inside the application!
+#After that we call Django’s built in forms classes (looks very similar to creating models).
+
+Example inside of forms.py:
+
+from django import forms
+class FormName(forms.Form):
+	name = forms.CharField()
+	email = forms.EmailField()
+	text = forms.CharField(widget=forms.Textarea)
+
+  #inside our views.py file we need to import the forms (two ways to do this)
+  from . import forms
+  from forms import FormName
+  #The . just indicates to import from the same directory as the current .py file
+
+#We can then create a new view for the form
+def form_name_view(request):
+	form = forms.FormName()
+	return render(request,’form_name.html’,{‘form’:form})
+#Then we just add the view to the app’s urls, either directly or with include(). Directly:
+from basicapp import views
+urlpatterns = [
+url(r’formpage/’,views.form_name_view,
+    name = ‘form_name’),
+]
+
+#in form.HTML
+<form method="POST">
+{{ form.as_p }}
+{% csrf_token %}
+<input type="submit" class="btn btn primary" value="submit"/>
+</form>
+
+#form.as_p which uses <p>
+
+#The Django framework requires the CSRF token to be present.
+#If it is not there, your form may not work!
+#It works by using a “hidden input” which is a random code and checking that it matches the user’s local site page.
+
+#We need to inform the view that if we get a POST back, we should check if the data is valid and if so, grab that data
+#We can do this by editing the view.
+def form_name_view(request):
+	form = forms.FormName()
+  if request.method == 'POST':  #checking if we get post request back
+    form = forms.FormName(request.POST)
+
+    if form.is_valid():  #check to see form is Validate
+      print("form validation sucessfull")
+      print("name :"+form.cleaned_data['name'])
+      print("email:"+form.cleaned_data['email'])
+      print("text:"+form.cleaned_data['text'])
+	return render(request,’form_name.html’,{‘form’:form})

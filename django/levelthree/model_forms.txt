@@ -1,0 +1,45 @@
+#instead of inheriting from the forms.Forms class, we will use forms.ModelForm in our forms.py file.
+#This helper class allows us to create a form from a pre-existing model
+#We then add an inline class (something we haven’t seen before) called Meta
+#This Meta class provides information connecting the model to the form.
+
+eg :
+
+from django import forms
+from myapp.models import MyModel
+class MyNewForm(forms.ModelForm):
+	# Form Fields go here
+		class Meta:
+			model = MyModel
+        fields = # Let’s see the options!
+#thinking about security no need to add form form filds out side meta Class
+# if you want custom validators then fields must be set outside meta Class
+
+#setting the fields to ModelForm
+option 1) Set it to “__all__”
+
+from django import forms
+from myapp.models import MyModel
+class MyNewForm(forms.ModelForm):
+	# Form Fields go here
+		class Meta:
+			model = MyModel
+        fields = “__all__”
+
+option 2) exclude certain fields
+from django import forms
+from myapp.models import MyModel
+class MyNewForm(forms.ModelForm):
+	# Form Fields go here
+		class Meta:
+			model = MyModel
+        exclude = [“field1”,“field2”]
+
+option 3) List included fields
+from django import forms
+from myapp.models import MyModel
+class MyNewForm(forms.ModelForm):
+	# Form Fields go here
+		class Meta:
+			model = MyModel
+        fields = (“field1”,“field2”)

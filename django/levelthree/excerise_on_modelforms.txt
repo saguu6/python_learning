@@ -1,0 +1,11 @@
+#work with the ProTwo project folder from Django Level Two.
+#Originally the user.html file used template tagging to display a list of all users.
+#We will change this to be a sign-up page.
+#Connected to a ModelForm, the user will sign up on the user page and be taken back to the home page.
+
+Exercise Steps:
+Create a ModelForm in forms.py
+Connect the form in the template
+Edit views.py to show the form
+Figure out how to .save() the data
+Verify the model is admin registered
