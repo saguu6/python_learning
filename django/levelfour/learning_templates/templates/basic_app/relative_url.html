@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Welcome to relative</h1>
+
+    <!-- old method <a href="basic_app/other">The Other Page </a> -->
+    <a href="{% url 'basic_app:other' %}">The Other Page</a>
+    <!-- basic_app is the app_name , other is the name of the url -->
+    <!-- for admin pagre -->
+    <a href="{% url 'admin:index' %}">admin</a>
+
+    <a href="{% url 'index' %}">index</a>
+  </body>
+</html>

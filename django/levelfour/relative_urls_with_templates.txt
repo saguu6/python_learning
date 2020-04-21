@@ -1,0 +1,26 @@
+#How can we replace a hardcoded URL path in an href with a URL Template?
+
+#We can easily fix this with the use of URLs in our templates. For example:
+<a href=”basicapp/thankyou”>Thanks</a>
+#Can be changed to:
+<a href=”{% url ‘thanku’%}”>Thanks</a>
+name=‘thanku’ is in the urls.py file.
+
+#Could also just directly reference the view. For example:
+<a href=”basicapp/thankyou”>
+Thanks</a>
+#Can be changed to:
+<a href=”{% url‘basicapp.views.thankyou’%}”>
+   Thanks</a>
+
+#The suggested (and most future-proof) method to do all of this involves the urls.py file.
+#Inside the urls.py file  you add in the variable app_name
+#You then set this variable equal to a string that is the same as your app name
+#This is the best way to use URL templates:
+<a href=”basicapp/thankyou”>Thanks</a>
+#Can be changed to:
+#this method will be used in future
+<a href=”{% url ‘basicapp:thankyou’ %}”>   Thanks</a> #there should not be any space between the quotes when the app_name:name_of_url
+#This method requires that app_name variable to be created inside the urls.py file!
+
+#Using templates for relative URLs will really help with multiple applications.

@@ -1,0 +1,15 @@
+#Template inheritance allows us to create a base template we can inherit from.
+#This saves us a lot of repetitive work and makes it much easier to maintain the same base look and feel across our entire website!
+#For example, if we wanted a navbar at the top of our page, it wouldn’t make sense to continually have the same navbar HTML code in each individual .html file.
+
+#Instead we set it to the base.html file and inherit it using template inheritance.
+
+#This idea is sometimes also known as template extending, as in extending the base.html to other .html files.
+
+#The inheritance doesn’t need to just be limited to one base.html file, you can extend multiple templates
+
+#Here are the main steps for inheritance:
+*)Find the repetitive parts of your project
+*)Create a base template of them
+*)Set the tags in the base template
+*)Extend and call those tags anywhere
