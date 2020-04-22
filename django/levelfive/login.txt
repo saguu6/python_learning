@@ -1,0 +1,7 @@
+#Once a user is registered, we want to make sure that they can log in and out of the site.
+#This process involves:
+Setting up the login views
+Using built-in decorators for access
+Adding the LOGIN_URL in settings
+Creating the login.html
+Editing the urls.py files

@@ -1,0 +1,29 @@
+#when we’ve logged on to the Admin page we’ve seen that there is already a built-in Authentication and Authorization model set in place.
+
+#The User object has a few key features:
+Username
+Email
+Password
+First Name
+Surname --> last_name
+
+#There are also some other attributes for the User object, such as is_active, is_staff, is_superuser.
+#Sometimes you will also want to add more attributes to a user, such as their own links or a profile image.
+
+#You can do this in your applications models.py file by creating another class that has a relationship to the User class.
+
+#Notice a new field we haven’t seen yet, an ImageField.
+#This will allow you to store images to a model, typically we will keep any user uploaded content like this in the media file.
+
+#In order to work with images with Python we will need to install the Python Imaging Library with:
+pip install pillow
+
+#Some users may get an error on this command indicating something like jpeg support disabled, in which case use:
+pip install pillow --global-option=”build_ext”
+--global-option=”--disable-jpeg”
+
+#Once you’ve created this model you’ll have to remember to register it in the admin.py file, with something like:
+admin.site.register(UserProfileInfo)
+
+#Typically images, CSS, JS, etc. all go in the static folder of your project, with the STATIC_ROOT variable path defined inside of settings.py
+#User uploaded content will go to the media folder, with the MEDIA_ROOT.

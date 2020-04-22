@@ -1,0 +1,10 @@
+#A lot of the coding for working with Users and Authorization happens in the views.py file.
+#The basic idea is that we check if there is a POST request and then perform some sort of action based off that information.
+
+#Sometimes we will want to save that information directly to the database.
+#Other times, we will set commit=False so we can manipulate the data before saving it to the database.
+#This helps prevent collision errors.
+
+
+#uname = admin
+pass = test@1234
