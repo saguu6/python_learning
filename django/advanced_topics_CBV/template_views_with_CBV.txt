@@ -1,0 +1,17 @@
+#Let’s see a comparison between using a function to call a template versus the TemplateView!
+Function Based View
+def index(request):
+return render(request,'index.html')
+
+Class Based Template View
+ class IndexView(TemplateView):
+template_name = 'index.html'
+
+def get_context_data(self,**kwargs):
+
+
+#here *args means parameters as tuples
+#**kwargs means dictionary keyword arguments
+
+uname = admin
+pass = test@1234

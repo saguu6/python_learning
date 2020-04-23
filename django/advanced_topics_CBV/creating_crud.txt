@@ -1,0 +1,5 @@
+#Whenever you work with models and databases you will need to perform those four basic actions.
+#Luckily, Django has class based views to simplify this entire process for you!
+
+#We’ll start off by exploring how to use the CreateView class.
+#Once we’ve worked with the CreateView class, working with the UpdateView and DeleteView classes will be very straightforward.

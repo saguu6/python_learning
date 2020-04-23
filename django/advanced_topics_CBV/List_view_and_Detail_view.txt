@@ -1,0 +1,11 @@
+#Often when we have models, we want to either list the records from the model, or show details of a single record.
+#Previously we did this with calls using the Object Relation Mapper directly
+This included things like:
+MyModel.objects.all()
+#However these sort of operations are very common!
+
+#So common that Django has some generic view classes you can inherit to very quickly display information from your model.
+#This is where the power of CBV comes to help us out!
+
+#Previously we’ve been putting all our templates inside the templates folder within the matching app folder.
+#However it is also common practice to do the “reverse”, have a template folder inside the app’s folder.

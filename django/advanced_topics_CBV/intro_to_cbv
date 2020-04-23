@@ -1,0 +1,12 @@
+#Let’s convert a simple hello world function view into a class based view!
+#We will use the simplest available Django View Class:
+from django.views.generic import View
+
+class CBView(View):
+    def get(self,request):
+        return HttpResponse("CLASS BASED VIEWS")
+
+#We will also have to slightly change the way we call a class based view in the urls.py file of our project.
+#We need to add in a .as_view() call off the class, this is an inherited method from the View we mentioned earlier.
+
+url(r'^$',views.CBView.as_view())
