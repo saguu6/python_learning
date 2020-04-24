@@ -1,0 +1,8 @@
+#if you ever get any error along with lines of :
+No module module_name
+
+#it is probably because you forgot to install it
+
+#to install
+
+pip install module_name

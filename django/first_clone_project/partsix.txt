@@ -1,0 +1,3 @@
+#setting up TEMPLATES
+#setting login template page in registration
+#setting urls.py in startproject

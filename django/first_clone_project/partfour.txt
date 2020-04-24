@@ -1,0 +1,23 @@
+#creating views --> CBVs
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import (TemplateView,ListView,DetailView,CreateView,UpdateView,DeleteView)
+
+class PostListView(ListView):
+    model = Post
+
+    #get_queryset is builtin method to set query
+
+    def get_queryset(self):  #setting the query to list view by using orm
+        return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date') #- means desc order
+        #__lte is field lookups which lessthenequalto <=
+
+
+# LoginRequiredMixin works similar to decorators login_required ,
+class CreatePostView(LoginRequiredMixin,CreateView):
+#if not loged in then where to go
+            login_url = '/login/'
+            #other wise set the redirect field
+            redirect_field_name = 'blog/post_detail.html'
+            form_class = PostFrom
+
+            model = Post

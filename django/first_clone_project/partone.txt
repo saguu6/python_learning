@@ -1,0 +1,22 @@
+#create project mysite
+django-admin startproject mysite
+
+#cd mysite
+
+#create applications
+django-admin startapp blog
+
+#create 2 files in blog app
+
+*)urls.py
+*)forms.py
+
+#migrate
+
+python manage.py migrate
+python manage.py makemigrations blog
+python manage.py migrate
+
+#runserver to check everything is working correct
+
+python manage.py runserver

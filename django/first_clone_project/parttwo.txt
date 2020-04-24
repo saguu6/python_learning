@@ -1,0 +1,17 @@
+#setting up models.py file
+from django.utils import timezone
+from django.core.urlresolvers import reverse
+# Create your models here.
+
+class Post(models.Model):
+    author = models.ForeignKey('auth.User')
+    title = models.CharField(max_length=256)
+    text = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now()) #depending on the timezine the date and time will stored check in setting.py
+    published_date = models.DateTimeField(blank=True,null=True)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+
+  #publish method is used when the post is being publised the current datetime must be stored in the db

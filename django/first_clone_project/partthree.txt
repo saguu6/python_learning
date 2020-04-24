@@ -1,0 +1,20 @@
+#setting up forms.py
+
+#learning how to set up form widgets to correspond to css classes
+#{{form.as_p}} ---> form will be displayed in <p> tags
+
+#adding particular widgets textarea and so on
+#we can do that by adding widigets attributes to metA classes
+
+class PostFrom(froms.ModelForm):
+
+    class Meta():
+        model = Post
+        fields = ('author','title','text')
+
+        #adding widigets
+        #attrs is atrribute
+        widgets = {
+            'title':forms.TextInput(attrs={'class':'textinputclass'}),
+            'text':forms.Textarea(attrs={'class':'editable medium-editor-text-area postcontent'}) #meduim editor library  --> postcontent is our own class
+        } #editable is also from medium-editor library
