@@ -1,0 +1,6 @@
+#migrating the created models
+
+#super user credentilas
+
+uname = admin
+pass= test@1234

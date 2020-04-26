@@ -1,7 +1,7 @@
 from django import forms
 from blog.models import Post,Comment
 
-class PostFrom(froms.ModelForm):
+class PostFrom(forms.ModelForm):
 
     class Meta():
         model = Post
@@ -14,7 +14,7 @@ class PostFrom(froms.ModelForm):
             'text':forms.Textarea(attrs={'class':'editable medium-editor-text-area postcontent'}) #midum editor library  --> postcontent is our own class
         }
 
-class CommentForm(froms.ModelForm):
+class CommentForm(forms.ModelForm):
 
     class Meta():
         model = Comment

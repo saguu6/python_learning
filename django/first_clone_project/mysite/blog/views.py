@@ -37,7 +37,7 @@ class UpdatePostView(LoginRequiredMixin,UpdateView):
     model = Post
 
 class DeletePostView(DeleteView):
-    models = Post
+    model = Post
 #waits until deleting is done
     success_url = reverse_lazy('post_list')
 #listing the post that are not published
@@ -57,7 +57,7 @@ class DraftListView(LoginRequiredMixin,ListView):
 
 @login_required
 def post_publish(request,pk):
-    post = get_object_or_404(Post)
+    post = get_object_or_404(Post, pk=pk)
     post.publish()
     return redirect('post_detail',pk=pk)
 
