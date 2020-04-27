@@ -19,5 +19,4 @@ class CreatePostView(LoginRequiredMixin,CreateView):
             #other wise set the redirect field
             redirect_field_name = 'blog/post_detail.html'
             form_class = PostFrom
-
             model = Post

@@ -1,0 +1,32 @@
+#this help to catch the error
+#like where the error is happening
+#by using this we can resolve the error easly
+
+#to get debug_toolbar
+
+pip install django-debug-debug_toolbar
+
+#in settings.py under
+INSTALLED_APPS = [ #AFTER SATTIC FILES
+  'debug_toolbar',
+]
+
+MIDDLEWARE = [
+'debug_toolbar.middleware.DebugToolbarMiddleware',
+
+]
+
+#at the end Add ips so that it should work only in the local system
+
+INTERNAL_IPS = ['127.0.0.1']
+
+
+#after this in project urls.py
+
+from django.conf import settings
+#After urlpatterns add this code
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        url(r'^__debug__/',include(debug_toolbar.urls)),
+    ] + urlpatterns
